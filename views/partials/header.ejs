@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Omnibus
+	</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://github.com/jasonzissman/TimeMe.js/blob/master/timeme.js" type="text/javascript"></script>
+	<style>
+	.nav justify-content-end li a:hover{
+		background-color: #ddd;
+
+	}	
+	.nav-scroller{
+		position: relative;
+		z-index: 2;
+		height: 2.75rem;
+		overflow-y: hidden;
+	}
+	.nav-scroller .nav{
+		flex-wrap: nowrap;
+		padding-bottom: 1rem;
+		margin-top: -1px;
+		overflow-x: auto;
+		text-align: center;
+		white-space: nowrap;
+	}
+	.text-muted{
+		color: #6c757d!important;
+	}
+	.p-2{
+		padding: 0.5rem!important;
+	}
+	a{
+		text-decoration: none;
+		background-color: transparent;
+	
+	}
+	.pb-3, .py-3{
+		padding-bottom: 1rem!important;
+	}
+	.pt-3, .py-3{
+		padding-top: 1rem!important;
+	}
+	header{
+		display: block;
+	}
+	*, ::after, ::before{
+		box-sizing: border-box;
+
+	}
+	.align-items-center{
+		-webkit-box-align: center!important;
+		align-items: center!important;
+	}
+	.justify-content-between{
+		-webkit-box-pack: justify!important;
+		justify-content: space-between!important;
+	}
+	.flex-nowrap{
+		flex-wrap: nowrap!important;
+	}
+	.row{
+		display: flex;
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+	.col-4{
+		position: relative;
+		width: 100%;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	.blog-header{
+		line-height: 1;
+		border-bottom: 1px solid grey;
+	}
+	div{
+		display: block;
+	}
+	body{
+		font-weight: 400;
+		line-height: 1.5;
+		color: #212529;
+		text-align: left;
+
+	}
+	a:-webkit-any-link{
+		color: webkit-link;
+		cursor: pointer;
+		
+	}
+	.text-dark{
+		color: #343a40!important;
+	}
+	.blog-header-logo{
+		font-size: 2.25rem;
+	}
+	</style>
+	</head>
+
+<body style="background-color: #EEE2DC;">
+	<!-- <nav class="navbar navbar-dark bg-success" style="
+	position: fixed;
+	top: 0;
+	width: 100%;
+	transition: top 0.3s;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Omnibus</a>
+			</div>
+
+			<div class=" navbar-item">
+				<ul class="nav justify-content-end">
+
+					<% if(!currentUser) { %>
+						<li style="padding: 0px 20px 0px 0px;">
+							<a href="/login" style="color: white;">Login</a>
+						</li>
+						<li>
+							<a style="display: inline-block; color: white;" href="/register">Signup</a>
+						</li>
+						<% } else { %>
+							
+							
+							<li style="color: white; padding: 0px 20px 0px 0px;">Signed in as 
+								<%= currentUser.username %>
+							</li>
+							
+							<li>
+								<a href="/logout" style="display: inline-block; color: white; margin-left: 20px;">Logout</a>
+							</li>
+							<% } %>
+				</ul>
+
+			</div>
+		</div>
+
+	</nav> -->
+
+<div class="container">
+	<header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+            <a class="text-muted" href="#">Subscribe</a>
+          </div>
+          <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" href="/">Omnibus</a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="text-muted" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
+			</a>
+			<% if(currentUser) { %>
+			<a class="text-muted" href="/admin" style="margin-right: 15px;"> Dashboard </a>
+			<%}%>
+			<% if(!currentUser) { %>
+
+			<a class="btn btn-sm btn-outline-secondary" href="/login">Login</a>
+			<a class="btn btn-sm btn-outline-secondary" style="margin-left: 20px;" href="/register">Sign up</a>
+			<% } else { %>
+				<a class="text-muted" href="#">Welcome <%= currentUser.username%></a>
+			<a class="btn btn-sm btn-outline-secondary" style="margin-left: 20px;" href="/logout">Logout</a>
+			<% } %>
+          </div>
+        </div>
+	  </header>
+	  <div class="nav-scroller py-1 mb-2  ">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="#">World</a>
+          <a class="p-2 text-muted" href="#">Canada</a>
+          <a class="p-2 text-muted" href="#">Technology</a>
+          <a class="p-2 text-muted" href="#">Design</a>
+          <a class="p-2 text-muted" href="#">Culture</a>
+          <a class="p-2 text-muted" href="#">Business</a>
+          <a class="p-2 text-muted" href="#">Politics</a>
+          <a class="p-2 text-muted" href="#">Opinion</a>
+          <a class="p-2 text-muted" href="#">Science</a>
+          <a class="p-2 text-muted" href="#">Health</a>
+          <a class="p-2 text-muted" href="#">Style</a>
+          <a class="p-2 text-muted" href="#">Travel</a>
+        </nav>
+      </div>
+
+
+	<div class="container">
+
+		<% if(error && error.length >0){ %>
+		<div class="alert alert-danger" role="alert" style="margin-top: 12px ;">
+			<%= error %> 
+		</div>
+		<%}%>
+		<%if(success && success.length >0){ %>
+		<div class="alert alert-success" role="alert" style="margin-top: 12px ;">
+			<%= success %> 
+		</div>
+		<%}%>
+		
+	</div>
+	

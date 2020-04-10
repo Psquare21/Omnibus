@@ -1,0 +1,29 @@
+<%- include ('partials/header') %>
+<div class="row" ">
+    <div class=" col-md-4">
+    <div class="thumbnail">
+        <h1><%=user.firstName+ " "+ user.lastName%></h1>
+        <img src="<%=user.avatar%>" alt="user profile image">
+        <div class="caption"><a href="mailto:<%= user.email%>"><%= user.email%></a></div>
+    </div>
+    <span style="justify-content:center;">
+        I am a fictional character and one of the two main protagonists in Metro-Goldwyn-Mayer's series of Tom and Jerry
+        theatrical cartoon short films, created by William Hanna and Joseph Barbera. I is a blue/grey anthropomorphic
+        domestic short-haired cat who first appeared in the 1940 animated short Puss Gets the Boot. I was originally
+        known as "Jasper" during his debut in that short, however, beginning from his next appearance in The Midnight
+        Snack and onwards.
+    </span>
+
+</div>      
+<div class="col-md-8">
+    <h3><%= user.username%>'s articles:</h3>
+    <ul>
+        <% articles.forEach(function(article){%>
+        <li><a href="#"><%= article.article.name%></a></li>
+        <%});%>
+    </ul>
+
+</div>
+</div>
+<a class="btn btn-outline-primary" href="/articles" style=" margin-top:50px; margin-bottom:70px;"> Back to all Articles</a>
+<%- include ('partials/footer') %>

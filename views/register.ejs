@@ -1,0 +1,90 @@
+
+<!-- <h1 style=" padding:20px 0px 0px 0px;">
+	SignUp!
+</h1>
+ -->
+<!-- <form action="/register" method="POST" style=" padding:15px 0px 0px 0px;" >
+
+	<input type="text" name="username" placeholder="username"><br>
+	<input type="password" name="password" placeholder="password"><br>
+	<input type="submit" value="SignUp">
+</form>
+ -->
+ <!DOCTYPE html>
+ <html>
+ 
+ <head>
+	 <title>
+		 Omnibus
+	 </title>
+	 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <script src="https://github.com/jasonzissman/TimeMe.js/blob/master/timeme.js" type="text/javascript"></script>
+	 
+ </head>
+ <body style="background-color: #EEE2DC;">
+ 
+<div class="container" style="margin-top: 20px;">
+	<div class="row">
+		<h1 style="width:100% ; 
+				   text-align: center"> SignUp!! </h1>
+			<div style="width: 30%; margin: 30px auto;">
+	
+				<form action="/register" method="POST">
+			
+					<div class="form-group">
+		
+						 <input class="form-control" type="text" name="username" placeholder="username">	
+						
+					</div>
+	
+					<div class="form-group">
+		
+						<input class="form-control"type="text" name="firstName" placeholder="First Name">
+		
+					</div>
+					<div class="form-group">
+		
+						<input class="form-control"type="text" name="lastName" placeholder="Last Name">
+		
+					</div>
+					<div class="form-group">
+		
+						<input class="form-control"type="email" name="email" placeholder="email">
+		
+					</div>
+					<div class="form-group">
+		
+						<input class="form-control"type="text" name="avatar" placeholder="Your Dp url">
+		
+					</div>
+					<div class="form-group">
+		
+						<input class="form-control"type="password" name="password" placeholder="password">
+		
+					</div>
+					<div class="form-group">
+		
+						<input class="form-control"type="password" name="adminCode" placeholder="For admin only">
+		
+					</div>
+	
+			
+					<div class="form-group">
+						<button class="btn btn-lg btn-primary btn-block">
+							Signup!!
+						</button>
+					</div>
+	
+	
+				</form>
+				<span>Already have an account? <a href="/login">Login</a></span>
+			</div>
+	
+		
+	</div>
+
+</div>
+<a href="/articles">Go Back!!</a>
+<%- include ('partials/footer') %>
+ </body>

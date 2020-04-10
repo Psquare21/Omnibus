@@ -1,0 +1,64 @@
+<%- include ('partials/header') %>
+
+<div class="conatiner">
+<!-- <h3 style="margin-top:20px; margin-left: 10px;">
+	All articles are displayed here
+</h3> -->
+
+<a class="btn btn-outline-primary" style="margin-left: 15px; margin-top:20px; " href="/articles/new">Publish New Article</a>
+<% if(currentUser) { %>
+<a class="btn btn-outline-primary" href="/articles/myarticles" style="display:inline; float: right; margin-right:10px; margin-top:20px;"> My Articles</a>
+<%}%>
+<% articles.forEach(function(article){ %>
+<div class="row" style="margin-top: 10px;margin-left: 10px;" >
+	<div class="jumbotron" style="margin-top: 10px; margin-left:5px; background-color:lightcyan; padding:10px; margin-bottom: 12px;" >
+		<div class="col-md-12" style= " margin-top: 5px; width:600px;" >
+			<h3>
+				
+				
+		<strong style=" margin-left:5px;">Title:</strong>
+		<strong ><%= article.article.name %></strong>
+				
+			</h3>
+		<span class="pull-right"></span>
+		
+		<p style="margin-left:5px;  width: 500px; ">
+		 <%= article.article.text %>	
+		</p>
+			
+			<h5 style="margin-left:10px; margin-bottom: 10px; font-size:12px;">
+				<i>Published by: <a href="/articles/users/<%=article.created_by._id%>"><%= article.created_by.username%></a>, <%= moment(article.created_on).fromNow()%> </i> 
+			</h5>
+			
+			<div class="row text-center" style="display:flex; flex-wrap: wrap; margin-left:10px; margin-bottom: 10px; font-size:12px;">
+        
+                <div class="caption">
+                    <% if (article.rating === 0) { %>
+                    <em>No reviews yet.</em>
+                    <% } else { %>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star <% if (article.rating > 1.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-star <% if (article.rating > 2.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-star <% if (article.rating > 3.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-star <% if (article.rating > 4.5) { %> checked <% } %>"></span>
+                    <% } %>
+                </div>
+		<a class="btn btn-outline-primary" style="margin-left: 10px;" href="/articles/<%=article._id%>"> Read More..</a>
+			
+			<% if(currentUser && article.created_by.id==currentUser._id || currentUser && currentUser.isAdmin){%>
+		<a class="btn btn-outline-warning" href="/articles/<%=article._id%>/edit" style="margin-left: 5px;"> Edit</a>
+		
+		<form action="/articles/<%= article.id%>?_method=DELETE" method="POST" style="display:inline;">
+			<input type="submit" style="margin-left: 5px;" class="btn btn-outline-danger" value="Delete">
+	
+		</form>
+		<%}%>
+	
+	</div>
+	
+	</div>
+	</div>
+</div>
+<% }); %>
+</div>
+<!-- <%- include ('partials/footer') %> -->
