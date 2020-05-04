@@ -10,6 +10,6 @@ In order to use this code, simply download it.
 
 Now enter npm install in terminal, it will install all your dependencies.
 
-Now change you database connection code.
+Now change you database connection code in app.js.
 
 Finally!! You are good to go!
