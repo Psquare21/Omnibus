@@ -16,7 +16,7 @@ var express = require('express'),
 //console.log('PathPathPathPath=>', path);
 mongoose
 	.connect(
-		'mongodb+srv://Parth_21:P@rth210497@cluster0-w7rke.mongodb.net/test?retryWrites=true&w=majority',
+		'enter your own path',
 		{
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
